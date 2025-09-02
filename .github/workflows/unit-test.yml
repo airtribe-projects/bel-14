@@ -20,11 +20,11 @@ jobs:
         node-version: '18.x'
     
     - name: Navigate to target directory
-      run: cd ./S6-UnitTesting/7-ContinuousIntegration
+      run: cd ./S6-UnitTesting/6-CI
 
         
     - name: Install dependencies
-      working-directory: ./S6-UnitTesting/7-ContinuousIntegration
+      working-directory: ./S6-UnitTesting/6-CI
       run: |
         if [ -f package-lock.json ]; then
           npm ci
@@ -34,7 +34,7 @@ jobs:
       
     - name: Run tests
       id: test
-      working-directory: ./S6-UnitTesting/7-ContinuousIntegration
+      working-directory: ./S6-UnitTesting/6-CI
       run: |
         echo "test_output<<EOF" >> $GITHUB_OUTPUT
         npm test 2>&1 | tee test_output.log
@@ -48,7 +48,7 @@ jobs:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           const fs = require('fs');
-          const testOutput = fs.readFileSync('./S6-UnitTesting/7-ContinuousIntegration/test_output.log', 'utf8');
+          const testOutput = fs.readFileSync('./S6-UnitTesting/6-CI/test_output.log', 'utf8');
           
           const comment = `## Test Results
 
