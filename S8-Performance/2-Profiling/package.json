@@ -1,0 +1,14 @@
+{
+  "name": "1-profiling",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "profile": "clinic flame -- node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "clinic": "^13.0.0"
+  }
+}
